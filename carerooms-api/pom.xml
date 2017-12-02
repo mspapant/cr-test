@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.synnous</groupId>
-		<artifactId>scs-parent</artifactId>
+		<artifactId>carerooms-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
