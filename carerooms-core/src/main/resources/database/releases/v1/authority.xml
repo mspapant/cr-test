@@ -1,0 +1,27 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-authority-createTable" author="mspapant" runInTransaction="true">
+        <createTable tableName="AUTHORITY">
+            <column name="ID" type="${key}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="USER_ID" type="${key}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUTHORITY" type="${varchar}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="AUTHORITY"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_AUTHORITY_USER_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

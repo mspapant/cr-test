@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-user-oauthRefreshToken" author="mspapant" runInTransaction="true">
+        <createTable tableName="OAUTH_REFRESH_TOKEN">
+            <column name="ID" type="${key}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="TOKEN" type="${varcharLongSmall}">
+                <constraints nullable="true"/>
+            </column>
+            <column name="USER_ID" type="${key}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXPIRATION_DATE" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="OAUTH_REFRESH_TOKEN"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_OAUTH_REFRESH_TOKEN_USER_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

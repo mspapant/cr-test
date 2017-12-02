@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-user-createTable" author="mspapant" runInTransaction="true">
+        <createTable tableName="USER">
+            <column name="ID" type="${key}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="PASSWORD" type="${varchar}"/>
+            <column name="EMAIL" type="${varchar}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FIRST_NAME" type="${varchar}"/>
+            <column name="LAST_NAME" type="${varchar}"/>
+            <column name="PHONE" type="${varchar}"/>
+            <column name="USER_TYPE" type="${varchar}"/>
+            <column name="STATUS" type="${varchar}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ENABLED" type="boolean" defaultValueBoolean="${booleanTrue}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOCKED" type="boolean" defaultValueBoolean="${booleanFalse}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_TOKEN" type="${varchar}"/>
+            <column name="AVATAR_ID" type="${key}"/>
+        </createTable>
+
+        <createIndex indexName="IDX_USER_EMAIL" tableName="USER" unique="true">
+            <column name="EMAIL" type="${varchar}"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
