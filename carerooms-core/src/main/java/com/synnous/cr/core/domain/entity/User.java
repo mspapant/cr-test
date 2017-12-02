@@ -71,26 +71,6 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
     @Column(name = "USER_TOKEN")
     private String userToken;
 
-    /** The confirmation token. */
-    @Column(name = "CONFIRMATION_TOKEN")
-    private String confirmationToken;
-
-    /** The confirmation sent at. */
-    @Column(name = "CONFIRMATION_SENT_AT")
-    private Date confirmationSentAt;
-
-    /** The confirmation sent at. */
-    @Column(name = "CONFIRMED_AT")
-    private Date confirmedAt;
-
-    /** The reset password token. */
-    @Column(name = "PASSWORD_TOKEN")
-    private String passwordToken;
-
-    /** The reset password sent at. */
-    @Column(name = "PASSWORD_TOKEN_SENT_AT")
-    private Date passwordSentAt;
-
     /** The status. */
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
@@ -203,22 +183,6 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
         this.lastName = lastName;
     }
 
-    public String getConfirmationToken() {
-        return confirmationToken;
-    }
-
-    public void setConfirmationToken(final String confirmationToken) {
-        this.confirmationToken = confirmationToken;
-    }
-
-    public Date getConfirmationSentAt() {
-        return confirmationSentAt;
-    }
-
-    public void setConfirmationSentAt(final Date confirmationSentAt) {
-        this.confirmationSentAt = confirmationSentAt;
-    }
-
     public String getUserToken() {
         return userToken;
     }
@@ -227,36 +191,12 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
         this.userToken = userToken;
     }
 
-    public Date getConfirmedAt() {
-        return confirmedAt;
-    }
-
-    public void setConfirmedAt(final Date confirmedAt) {
-        this.confirmedAt = confirmedAt;
-    }
-
     public UserStatus getStatus() {
         return status;
     }
 
     public void setStatus(final UserStatus status) {
         this.status = status;
-    }
-
-    public String getPasswordToken() {
-        return passwordToken;
-    }
-
-    public void setPasswordToken(final String passwordToken) {
-        this.passwordToken = passwordToken;
-    }
-
-    public Date getPasswordSentAt() {
-        return passwordSentAt;
-    }
-
-    public void setPasswordSentAt(final Date passwordSentAt) {
-        this.passwordSentAt = passwordSentAt;
     }
 
     public UserType getUserType() {
@@ -317,12 +257,9 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
                 ", enabled=" + enabled +
                 ", locked=" + locked +
                 ", userToken='" + userToken + '\'' +
-                ", confirmationToken='" + confirmationToken + '\'' +
-                ", confirmationSentAt=" + confirmationSentAt +
-                ", confirmedAt=" + confirmedAt +
-                ", passwordToken='" + passwordToken + '\'' +
-                ", passwordSentAt=" + passwordSentAt +
                 ", status=" + status +
+                ", avatar=" + avatar +
+                ", avatarBase64='" + avatarBase64 + '\'' +
                 ", authorityList=" + authorityList +
                 "} " + super.toString();
     }
