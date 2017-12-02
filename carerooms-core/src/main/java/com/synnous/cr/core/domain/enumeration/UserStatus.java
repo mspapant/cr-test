@@ -6,5 +6,5 @@ package com.synnous.cr.core.domain.enumeration;
  * @author : Manos Papantonakos.
  */
 public enum UserStatus {
-    INVITED, PENDING, ACTIVE
+    SIGNUP, PENDING, ACTIVE
 }

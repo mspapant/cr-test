@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
         if (!user.getEnabled()) {
             throw new AuthenticationException(AuthenticationException.Reason.USER_NOT_ACTIVE);
         }
-        if (UserStatus.PENDING.equals(user.getStatus())) {
+        if (UserStatus.SIGNUP.equals(user.getStatus())) {
             throw new AuthenticationException(AuthenticationException.Reason.USER_PENDING);
         }
     }
