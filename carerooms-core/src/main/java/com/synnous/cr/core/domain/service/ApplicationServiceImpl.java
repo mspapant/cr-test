@@ -1,5 +1,6 @@
 package com.synnous.cr.core.domain.service;
 
+import com.synnous.cr.core.domain.adapter.EmailAdapter;
 import com.synnous.cr.core.domain.entity.Application;
 import com.synnous.cr.core.domain.entity.Appointment;
 import com.synnous.cr.core.domain.entity.Document;
@@ -9,11 +10,13 @@ import com.synnous.cr.core.domain.enumeration.ApplicationStatus;
 import com.synnous.cr.core.domain.enumeration.ApplicationStep;
 import com.synnous.cr.core.domain.enumeration.AppointmentStatus;
 import com.synnous.cr.core.domain.enumeration.DocumentType;
+import com.synnous.cr.core.domain.enumeration.Template;
 import com.synnous.cr.core.domain.enumeration.UserType;
 import com.synnous.cr.core.domain.repository.ApplicationRepository;
 import com.synnous.cr.core.domain.repository.AppointmentRepository;
 import com.synnous.cr.core.domain.repository.TrainingRepository;
 import com.synnous.cr.core.domain.repository.UserRepository;
+import com.synnous.cr.core.property.EmailProperties;
 import com.synnous.cr.core.property.StorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -57,6 +61,18 @@ public class ApplicationServiceImpl implements ApplicationService {
     /** The storage properties. */
     @Autowired
     private StorageProperties storageProperties;
+
+    /** The email adapter. */
+    @Autowired
+    private EmailAdapter emailAdapter;
+
+    /** The template service. */
+    @Autowired
+    private TemplateService templateService;
+
+    /** The email properties. */
+    @Autowired
+    private EmailProperties emailProperties;
 
     /**
      * Returns the applications.
@@ -142,9 +158,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public Application updateApplication(final String userId, final String applicationId, final Application request) {
         final Application target = applicationRepository.findOne(applicationId);
+        final ApplicationStatus previous = target.getStatus();
+
         target.setStep(request.getStep());
         target.setStatus(request.getStatus());
         target.setUpdatedAt(new Date());
-        return applicationRepository.save(target);
+        final Application application = applicationRepository.save(target);
+
+        if (!previous.equals(target.getStatus())) {
+            emailAdapter.sendEmail(emailProperties.getSubjectApplicationStatus(), templateService.generate(Template.APPLICATION_CHANGE_STATUS, new HashMap<>()), application.getUser().getEmail());
+        }
+        return application;
     }
 }

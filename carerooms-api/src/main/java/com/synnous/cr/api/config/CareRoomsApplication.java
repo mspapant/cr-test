@@ -1,5 +1,6 @@
 package com.synnous.cr.api.config;
 
+import com.synnous.cr.core.property.EmailProperties;
 import com.synnous.cr.core.property.StorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @ComponentScan("com.synnous")
 @EnableAutoConfiguration(exclude = RepositoryRestMvcAutoConfiguration.class)
-@EnableConfigurationProperties({StorageProperties.class})
+@EnableConfigurationProperties({StorageProperties.class, EmailProperties.class})
 public class CareRoomsApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
