@@ -1,0 +1,67 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-application-createTable" author="mspapant" runInTransaction="true">
+        <createTable tableName="APPLICATION">
+            <column name="ID" type="${key}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="USER_ID" type="${key}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROPERTY_ID" type="${key}"/>
+            <column name="APPOINTMENT_ID" type="${key}"/>
+            <column name="TRAINING_ID" type="${key}"/>
+            <column name="STATUS" type="${varchar}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STEP" type="${varchar}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="IDX_APPLICATION_STATUS" tableName="APPLICATION" unique="false">
+            <column name="STATUS" type="${varchar}"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseTableName="APPLICATION"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_APPLICATION_USER_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="APPLICATION"
+                                 baseColumnNames="PROPERTY_ID"
+                                 constraintName="FK_APPLICATION_PROPERTY_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="PROPERTY"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="APPLICATION"
+                                 baseColumnNames="APPOINTMENT_ID"
+                                 constraintName="FK_APPLICATION_APPOINTMENT_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="APPOINTMENT"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="APPLICATION"
+                                 baseColumnNames="TRAINING_ID"
+                                 constraintName="FK_APPLICATION_TRAINING_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="TRAINING"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

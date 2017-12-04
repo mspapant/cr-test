@@ -1,0 +1,284 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-test-applications" author="mspapant" runInTransaction="true">
+
+        <insert tableName="PROPERTY">
+            <column name="ID" value="1"/>
+            <column name="USER_ID" value="1"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="1"/>
+            <column name="USER_ID" value="1"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="1"/>
+            <column name="USER_ID" value="1"/>
+            <column name="PROPERTY_ID" value="1"/>
+            <column name="TRAINING_ID" value="1"/>
+            <column name="STEP" value="APPOINTMENT"/>
+            <column name="STATUS" value="PENDING"/>
+        </insert>
+
+        <insert tableName="PROPERTY">
+            <column name="ID" value="2"/>
+            <column name="USER_ID" value="2"/>
+        </insert>
+        <insert tableName="APPOINTMENT">
+            <column name="ID" value="2"/>
+            <column name="STATUS" value="SCHEDULED"/>
+            <column name="VISIT_USER_ID" value="11"/>
+            <column name="APPOINTMENT" valueDate="${nowTimestamp_plus10days}"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="2"/>
+            <column name="USER_ID" value="2"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="2"/>
+            <column name="USER_ID" value="2"/>
+            <column name="PROPERTY_ID" value="2"/>
+            <column name="TRAINING_ID" value="1"/>
+            <column name="APPOINTMENT_ID" value="2"/>
+            <column name="STEP" value="APPOINTMENT"/>
+            <column name="STATUS" value="PENDING"/>
+        </insert>
+
+        <insert tableName="PROPERTY">
+            <column name="ID" value="3"/>
+            <column name="USER_ID" value="3"/>
+        </insert>
+        <insert tableName="APPOINTMENT">
+            <column name="ID" value="3"/>
+            <column name="STATUS" value="SCHEDULED"/>
+            <column name="VISIT_USER_ID" value="11"/>
+            <column name="APPOINTMENT" valueDate="${nowTimestamp_plus10days}"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="3"/>
+            <column name="USER_ID" value="3"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="3"/>
+            <column name="USER_ID" value="3"/>
+            <column name="PROPERTY_ID" value="3"/>
+            <column name="TRAINING_ID" value="3"/>
+            <column name="APPOINTMENT_ID" value="3"/>
+            <column name="STEP" value="APPOINTMENT"/>
+            <column name="STATUS" value="PENDING"/>
+        </insert>
+
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="1"/>
+            <column name="OBJECT_KEY" value="1.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/1.pdf"/>
+        </insert>
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="2"/>
+            <column name="OBJECT_KEY" value="2.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/2.pdf"/>
+        </insert>
+        <insert tableName="PROPERTY">
+            <column name="ID" value="4"/>
+            <column name="USER_ID" value="4"/>
+            <column name="INSURANCE_POLICY_NO" value="4434324"/>
+            <column name="APPROVAL_FROM_MORTGAGE_LENDER" valueBoolean="true"/>
+            <column name="INSURANCE_POLICY_DOCUMENT_ID" value="1"/>
+            <column name="PROOF_HOME_OWNERSHIP_DOCUMENT_ID" value="2"/>
+        </insert>
+        <insert tableName="APPOINTMENT">
+            <column name="ID" value="4"/>
+            <column name="STATUS" value="APPROVED"/>
+            <column name="VISIT_USER_ID" value="11"/>
+            <column name="APPOINTMENT" valueDate="${nowTimestamp_plus10days}"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="4"/>
+            <column name="USER_ID" value="4"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="4"/>
+            <column name="USER_ID" value="4"/>
+            <column name="PROPERTY_ID" value="4"/>
+            <column name="TRAINING_ID" value="4"/>
+            <column name="APPOINTMENT_ID" value="4"/>
+            <column name="STEP" value="DOCUMENTATION"/>
+            <column name="STATUS" value="DRAFT"/>
+        </insert>
+
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="3"/>
+            <column name="OBJECT_KEY" value="3.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/3.pdf"/>
+        </insert>
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="4"/>
+            <column name="OBJECT_KEY" value="4.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/4.pdf"/>
+        </insert>
+        <insert tableName="PROPERTY">
+            <column name="ID" value="5"/>
+            <column name="USER_ID" value="5"/>
+            <column name="INSURANCE_POLICY_NO" value="4434324"/>
+            <column name="APPROVAL_FROM_MORTGAGE_LENDER" valueBoolean="true"/>
+            <column name="INSURANCE_POLICY_DOCUMENT_ID" value="3"/>
+            <column name="PROOF_HOME_OWNERSHIP_DOCUMENT_ID" value="4"/>
+        </insert>
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="5"/>
+            <column name="OBJECT_KEY" value="5.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/5.pdf"/>
+        </insert>
+        <insert tableName="DBS_CERTIFICATION">
+            <column name="ID" value="1"/>
+            <column name="EXPIRATION_DATE" valueDate="${nowTimestamp_plus10days}"/>
+            <column name="DOCUMENT_ID" value="5"/>
+        </insert>
+        <insert tableName="PROPERTY_PERSON">
+            <column name="ID" value="1"/>
+            <column name="PROPERTY_ID" value="5"/>
+            <column name="FIRST_NAME" value="Carole"/>
+            <column name="LAST_NAME" value="Simpson"/>
+            <column name="DBS_CERTIFICATION_ID" value="1"/>
+        </insert>
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="6"/>
+            <column name="OBJECT_KEY" value="6.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/6.pdf"/>
+        </insert>
+        <insert tableName="DBS_CERTIFICATION">
+            <column name="ID" value="2"/>
+            <column name="EXPIRATION_DATE" valueDate="${nowTimestamp_plus10days}"/>
+            <column name="DOCUMENT_ID" value="6"/>
+        </insert>
+        <insert tableName="PROPERTY_PERSON">
+            <column name="ID" value="2"/>
+            <column name="PROPERTY_ID" value="5"/>
+            <column name="FIRST_NAME" value="Samantha"/>
+            <column name="LAST_NAME" value="Romero"/>
+            <column name="DBS_CERTIFICATION_ID" value="2"/>
+        </insert>
+
+        <insert tableName="APPOINTMENT">
+            <column name="ID" value="5"/>
+            <column name="STATUS" value="APPROVED"/>
+            <column name="VISIT_USER_ID" value="11"/>
+            <column name="APPOINTMENT" valueDate="${nowTimestamp_plus10days}"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="5"/>
+            <column name="USER_ID" value="5"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="5"/>
+            <column name="USER_ID" value="5"/>
+            <column name="PROPERTY_ID" value="5"/>
+            <column name="TRAINING_ID" value="5"/>
+            <column name="APPOINTMENT_ID" value="5"/>
+            <column name="STEP" value="DOCUMENTATION"/>
+            <column name="STATUS" value="DRAFT"/>
+        </insert>
+
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="9"/>
+            <column name="OBJECT_KEY" value="9.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/9.pdf"/>
+        </insert>
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="10"/>
+            <column name="OBJECT_KEY" value="10.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/10.pdf"/>
+        </insert>
+        <insert tableName="PROPERTY">
+            <column name="ID" value="6"/>
+            <column name="USER_ID" value="6"/>
+            <column name="INSURANCE_POLICY_NO" value="4434324"/>
+            <column name="APPROVAL_FROM_MORTGAGE_LENDER" valueBoolean="true"/>
+            <column name="INSURANCE_POLICY_DOCUMENT_ID" value="9"/>
+            <column name="PROOF_HOME_OWNERSHIP_DOCUMENT_ID" value="10"/>
+        </insert>
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="11"/>
+            <column name="OBJECT_KEY" value="11.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/11.pdf"/>
+        </insert>
+        <insert tableName="DBS_CERTIFICATION">
+            <column name="ID" value="61"/>
+            <column name="EXPIRATION_DATE" valueDate="${nowTimestamp_plus10days}"/>
+            <column name="DOCUMENT_ID" value="11"/>
+        </insert>
+        <insert tableName="PROPERTY_PERSON">
+            <column name="ID" value="61"/>
+            <column name="PROPERTY_ID" value="6"/>
+            <column name="FIRST_NAME" value="Carole"/>
+            <column name="LAST_NAME" value="Simpson"/>
+            <column name="DBS_CERTIFICATION_ID" value="61"/>
+        </insert>
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="12"/>
+            <column name="OBJECT_KEY" value="12.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-propertydocument/12.pdf"/>
+        </insert>
+        <insert tableName="DBS_CERTIFICATION">
+            <column name="ID" value="62"/>
+            <column name="EXPIRATION_DATE" valueDate="${nowTimestamp_plus10days}"/>
+            <column name="DOCUMENT_ID" value="12"/>
+        </insert>
+        <insert tableName="PROPERTY_PERSON">
+            <column name="ID" value="62"/>
+            <column name="PROPERTY_ID" value="6"/>
+            <column name="FIRST_NAME" value="Samantha"/>
+            <column name="LAST_NAME" value="Romero"/>
+            <column name="DBS_CERTIFICATION_ID" value="62"/>
+        </insert>
+
+        <insert tableName="APPOINTMENT">
+            <column name="ID" value="6"/>
+            <column name="STATUS" value="APPROVED"/>
+            <column name="VISIT_USER_ID" value="11"/>
+            <column name="APPOINTMENT" valueDate="${nowTimestamp_plus10days}"/>
+        </insert>
+
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="13"/>
+            <column name="OBJECT_KEY" value="1.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-trainingdocument/1.pdf"/>
+        </insert>
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="14"/>
+            <column name="OBJECT_KEY" value="1.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-trainingdocument/2.pdf"/>
+        </insert>
+        <insert tableName="DOCUMENT">
+            <column name="ID" value="15"/>
+            <column name="OBJECT_KEY" value="1.pdf"/>
+            <column name="URL" value="https://s3.eu-west-2.amazonaws.com/dev-carerooms-trainingdocument/3.pdf"/>
+        </insert>
+        <insert tableName="TRAINING">
+            <column name="ID" value="6"/>
+            <column name="USER_ID" value="6"/>
+            <column name="SAFEGUARDING_TRAINING_ID" value="13"/>
+            <column name="CLEANING_TRAINING_ID" value="14"/>
+            <column name="FOOD_TRAINING_ID" value="15"/>
+        </insert>
+        <insert tableName="APPLICATION">
+            <column name="ID" value="6"/>
+            <column name="USER_ID" value="6"/>
+            <column name="PROPERTY_ID" value="6"/>
+            <column name="TRAINING_ID" value="6"/>
+            <column name="APPOINTMENT_ID" value="6"/>
+            <column name="STEP" value="ONLINE_TRAINING"/>
+            <column name="STATUS" value="DRAFT"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

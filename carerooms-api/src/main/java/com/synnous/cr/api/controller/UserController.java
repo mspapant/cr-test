@@ -1,7 +1,6 @@
 package com.synnous.cr.api.controller;
 
 import com.synnous.cr.api.assembler.UserAssembler;
-import com.synnous.cr.api.assembler.UserMiniAssembler;
 import com.synnous.cr.api.controller.parent.V1Controller;
 import com.synnous.cr.api.resource.UserResource;
 import com.synnous.cr.core.domain.service.UserService;
@@ -34,10 +33,6 @@ public class UserController extends V1Controller {
     /** The user resource assembler. */
     @Autowired
     private UserAssembler userAssembler;
-
-    /** The user mini assembler. */
-    @Autowired
-    private UserMiniAssembler userMiniAssembler;
 
     /**
      * Return the user.

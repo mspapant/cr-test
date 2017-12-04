@@ -6,5 +6,5 @@ package com.synnous.cr.core.domain.enumeration;
  * @author : Manos Papantonakos.
  */
 public enum UserType {
-    PATIENT, HOST, HCP
+    PATIENT, HOST, HCP, AREA_MANAGER
 }

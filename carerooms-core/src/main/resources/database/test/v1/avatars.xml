@@ -3,18 +3,43 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
 
-    <changeSet logicalFilePath="path-independent" id="version1-test-avatar" author="mspapant" runInTransaction="true">
+    <changeSet logicalFilePath="path-independent" id="version1-test-avatars" author="mspapant" runInTransaction="true">
 
         <insert tableName="AVATAR">
             <column name="ID" value="1"/>
             <column name="OBJECT_KEY" value="72"/>
             <column name="URL" value="https://randomuser.me/api/portraits/men/64.jpg"/>
         </insert>
-
         <insert tableName="AVATAR">
             <column name="ID" value="2"/>
             <column name="OBJECT_KEY" value="74"/>
             <column name="URL" value="https://randomuser.me/api/portraits/women/74.jpg"/>
+        </insert>
+        <insert tableName="AVATAR">
+            <column name="ID" value="3"/>
+            <column name="OBJECT_KEY" value="71"/>
+            <column name="URL" value="https://randomuser.me/api/portraits/women/94.jpg"/>
+        </insert>
+        <insert tableName="AVATAR">
+            <column name="ID" value="4"/>
+            <column name="OBJECT_KEY" value="71"/>
+            <column name="URL" value="https://randomuser.me/api/portraits/men/10.jpg"/>
+        </insert>
+        <insert tableName="AVATAR">
+            <column name="ID" value="5"/>
+            <column name="OBJECT_KEY" value="71"/>
+            <column name="URL" value="https://randomuser.me/api/portraits/men/92.jpg"/>
+        </insert>
+        <insert tableName="AVATAR">
+            <column name="ID" value="6"/>
+            <column name="OBJECT_KEY" value="71"/>
+            <column name="URL" value="https://randomuser.me/api/portraits/men/8.jpg"/>
+        </insert>
+
+        <insert tableName="AVATAR">
+            <column name="ID" value="11"/>
+            <column name="OBJECT_KEY" value="73"/>
+            <column name="URL" value="https://randomuser.me/api/portraits/men/63.jpg"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

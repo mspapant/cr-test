@@ -8,6 +8,7 @@
     <property name="nowDate" value="now()" dbms="mysql, postgresql"/>
     <property name="nowDate" value="CURRENT_DATE" dbms="hsqldb"/>
     <property name="nowTimestamp" value="now()" dbms="mysql, postgresql"/>
+    <property name="nowTimestamp_plus10days" value="now() + INTERVAL 10 DAY" dbms="mysql, postgresql"/>
     <property name="nowTimestamp" value="CURRENT_TIME" dbms="hsqldb"/>
     <property name="boolean" value="NUMBER(1,0)" dbms="mysql, hsqldb"/>
     <property name="money" value="NUMBER(10,2)" dbms="mysql"/>

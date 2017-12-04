@@ -1,6 +1,9 @@
 package com.synnous.cr.core.domain.service;
 
+import com.synnous.cr.core.domain.entity.Appointment;
 import com.synnous.cr.core.domain.entity.User;
+
+import java.util.List;
 
 /**
  * The user service.

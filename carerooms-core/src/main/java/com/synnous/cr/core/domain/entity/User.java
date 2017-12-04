@@ -1,8 +1,9 @@
 package com.synnous.cr.core.domain.entity;
 
 
-import com.synnous.cr.core.domain.enumeration.UserStatus;
 import com.synnous.cr.core.domain.entity.root.IdTimestampEntity;
+import com.synnous.cr.core.domain.enumeration.ApplicationStep;
+import com.synnous.cr.core.domain.enumeration.UserStatus;
 import com.synnous.cr.core.domain.enumeration.UserType;
 import com.synnous.cr.core.domain.util.AuthorityUtils;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,7 +21,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -88,6 +88,14 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
     /** The authorityList. */
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Authority> authorityList;
+
+    /** The applications. */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Application> applications;
+
+    /** The properties. */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Property> properties;
 
     public User() {
     }
@@ -231,6 +239,22 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
         this.avatarBase64 = avatarBase64;
     }
 
+    public Set<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(final Set<Application> applications) {
+        this.applications = applications;
+    }
+
+    public Set<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(final Set<Property> properties) {
+        this.properties = properties;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -261,6 +285,7 @@ public class User extends IdTimestampEntity implements Serializable, UserDetails
                 ", avatar=" + avatar +
                 ", avatarBase64='" + avatarBase64 + '\'' +
                 ", authorityList=" + authorityList +
+                ", properties=" + properties +
                 "} " + super.toString();
     }
 }

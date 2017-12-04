@@ -14,6 +14,10 @@ public class StorageProperties {
 
     private String avatarBucket;
 
+    private String propertyDocumentBucket;
+
+    private String trainingDocumentBucket;
+
     private String awsProfile;
 
     public String getAwsProfile() {
@@ -30,5 +34,21 @@ public class StorageProperties {
 
     public void setAvatarBucket(final String avatarBucket) {
         this.avatarBucket = avatarBucket;
+    }
+
+    public String getPropertyDocumentBucket() {
+        return propertyDocumentBucket;
+    }
+
+    public void setPropertyDocumentBucket(final String propertyDocumentBucket) {
+        this.propertyDocumentBucket = propertyDocumentBucket;
+    }
+
+    public String getTrainingDocumentBucket() {
+        return trainingDocumentBucket;
+    }
+
+    public void setTrainingDocumentBucket(final String trainingDocumentBucket) {
+        this.trainingDocumentBucket = trainingDocumentBucket;
     }
 }

@@ -5,4 +5,5 @@
 
     <include file="avatars.xml" relativeToChangelogFile="true"/>
     <include file="users.xml" relativeToChangelogFile="true"/>
+    <include file="applications.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

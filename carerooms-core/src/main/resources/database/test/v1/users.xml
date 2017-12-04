@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
 
-    <changeSet logicalFilePath="path-independent" id="version1-test-user" author="mspapant" runInTransaction="true">
+    <changeSet logicalFilePath="path-independent" id="version1-test-users" author="mspapant" runInTransaction="true">
 
         <insert tableName="USER">
             <column name="ID" value="1"/>
@@ -13,7 +13,7 @@
             <column name="LAST_NAME" value="Howard"/>
             <column name="ENABLED" valueBoolean="true"/>
             <column name="LOCKED" valueBoolean="false"/>
-            <column name="STATUS" value="PENDING"/>
+            <column name="STATUS" value="ACTIVE"/>
             <column name="USER_TYPE" value="HOST"/>
             <column name="AVATAR_ID" value="1"/>
         </insert>
@@ -25,9 +25,70 @@
             <column name="LAST_NAME" value="Berry"/>
             <column name="ENABLED" valueBoolean="true"/>
             <column name="LOCKED" valueBoolean="false"/>
-            <column name="STATUS" value="PENDING"/>
+            <column name="STATUS" value="ACTIVE"/>
             <column name="USER_TYPE" value="HOST"/>
             <column name="AVATAR_ID" value="2"/>
+        </insert>
+        <insert tableName="USER">
+            <column name="ID" value="3"/>
+            <column name="PASSWORD" value="b9491ae1a856dd4f7c5adfbb59bcab6f9341dde6374dce0a6bd246e62619dffebf7bc9d1e9304a8d"/>
+            <column name="EMAIL" value="host3@example.com"/>
+            <column name="FIRST_NAME" value="Kylie"/>
+            <column name="LAST_NAME" value="Ramos"/>
+            <column name="ENABLED" valueBoolean="true"/>
+            <column name="LOCKED" valueBoolean="false"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="USER_TYPE" value="HOST"/>
+            <column name="AVATAR_ID" value="3"/>
+        </insert>
+        <insert tableName="USER">
+            <column name="ID" value="4"/>
+            <column name="PASSWORD" value="b9491ae1a856dd4f7c5adfbb59bcab6f9341dde6374dce0a6bd246e62619dffebf7bc9d1e9304a8d"/>
+            <column name="EMAIL" value="host4@example.com"/>
+            <column name="FIRST_NAME" value="Clinton"/>
+            <column name="LAST_NAME" value="Williamson"/>
+            <column name="ENABLED" valueBoolean="true"/>
+            <column name="LOCKED" valueBoolean="false"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="USER_TYPE" value="HOST"/>
+            <column name="AVATAR_ID" value="4"/>
+        </insert>
+        <insert tableName="USER">
+            <column name="ID" value="5"/>
+            <column name="PASSWORD" value="b9491ae1a856dd4f7c5adfbb59bcab6f9341dde6374dce0a6bd246e62619dffebf7bc9d1e9304a8d"/>
+            <column name="EMAIL" value="host5@example.com"/>
+            <column name="FIRST_NAME" value="Louis"/>
+            <column name="LAST_NAME" value="Jenkins"/>
+            <column name="ENABLED" valueBoolean="true"/>
+            <column name="LOCKED" valueBoolean="false"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="USER_TYPE" value="HOST"/>
+            <column name="AVATAR_ID" value="5"/>
+        </insert>
+        <insert tableName="USER">
+            <column name="ID" value="6"/>
+            <column name="PASSWORD" value="b9491ae1a856dd4f7c5adfbb59bcab6f9341dde6374dce0a6bd246e62619dffebf7bc9d1e9304a8d"/>
+            <column name="EMAIL" value="host6@example.com"/>
+            <column name="FIRST_NAME" value="Leroy"/>
+            <column name="LAST_NAME" value="Andrews"/>
+            <column name="ENABLED" valueBoolean="true"/>
+            <column name="LOCKED" valueBoolean="false"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="USER_TYPE" value="HOST"/>
+            <column name="AVATAR_ID" value="6"/>
+        </insert>
+
+        <insert tableName="USER">
+            <column name="ID" value="11"/>
+            <column name="PASSWORD" value="b9491ae1a856dd4f7c5adfbb59bcab6f9341dde6374dce0a6bd246e62619dffebf7bc9d1e9304a8d"/>
+            <column name="EMAIL" value="areaManager1@example.com"/>
+            <column name="FIRST_NAME" value="George"/>
+            <column name="LAST_NAME" value="Smith"/>
+            <column name="ENABLED" valueBoolean="true"/>
+            <column name="LOCKED" valueBoolean="false"/>
+            <column name="STATUS" value="ACTIVE"/>
+            <column name="USER_TYPE" value="AREA_MANAGER"/>
+            <column name="AVATAR_ID" value="11"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

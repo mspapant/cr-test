@@ -1,11 +1,12 @@
 package com.synnous.cr.core.domain.service;
 
-import com.synnous.cr.core.domain.exception.AuthenticationException;
-import com.synnous.cr.core.domain.repository.UserRepository;
 import com.synnous.cr.core.domain.adapter.FileAdapter;
 import com.synnous.cr.core.domain.entity.Avatar;
 import com.synnous.cr.core.domain.entity.User;
 import com.synnous.cr.core.domain.enumeration.UserStatus;
+import com.synnous.cr.core.domain.exception.AuthenticationException;
+import com.synnous.cr.core.domain.repository.AppointmentRepository;
+import com.synnous.cr.core.domain.repository.UserRepository;
 import com.synnous.cr.core.property.StorageProperties;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class UserServiceImpl implements UserService {
     /** The file adapter. */
     @Autowired
     private FileAdapter fileAdapter;
+
+    /** The on board in home visit repository. */
+    @Autowired
+    private AppointmentRepository appointmentRepository;
 
     /** The storage properties. */
     @Autowired

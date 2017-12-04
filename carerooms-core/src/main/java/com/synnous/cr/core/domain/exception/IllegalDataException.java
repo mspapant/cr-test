@@ -7,6 +7,8 @@ package com.synnous.cr.core.domain.exception;
  */
 public class IllegalDataException extends RuntimeException {
     public enum Reason {
+        DBS_EXPIRATION_EMPTY("error.property.person.dbsExpiration.empty"),
+        DBS_EXPIRATION_IN_PAST("error.property.person.dbsExpiration.inPast"),
         ;
 
         public String messageId;

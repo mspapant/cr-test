@@ -1,10 +1,10 @@
 package com.synnous.cr.core.domain.enumeration;
 
 /**
- * The user status.
+ * The visit status.
  *
  * @author : Manos Papantonakos.
  */
-public enum UserStatus {
-    SIGNUP, ACTIVE
+public enum AppointmentStatus {
+    SCHEDULED, APPROVED, REJECTED
 }

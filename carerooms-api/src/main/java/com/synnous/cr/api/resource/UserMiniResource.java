@@ -1,5 +1,6 @@
 package com.synnous.cr.api.resource;
 
+import com.synnous.cr.core.domain.enumeration.ApplicationStep;
 import com.synnous.cr.core.domain.enumeration.UserStatus;
 import com.synnous.cr.core.domain.enumeration.UserType;
 

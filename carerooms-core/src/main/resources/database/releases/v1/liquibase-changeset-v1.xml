@@ -7,4 +7,11 @@
     <include file="user.xml" relativeToChangelogFile="true"/>
     <include file="authority.xml" relativeToChangelogFile="true"/>
     <include file="oauth_refresh_token.xml" relativeToChangelogFile="true"/>
+    <include file="appointment.xml" relativeToChangelogFile="true"/>
+    <include file="document.xml" relativeToChangelogFile="true"/>
+    <include file="dbs_document.xml" relativeToChangelogFile="true"/>
+    <include file="property.xml" relativeToChangelogFile="true"/>
+    <include file="property_person.xml" relativeToChangelogFile="true"/>
+    <include file="training.xml" relativeToChangelogFile="true"/>
+    <include file="application.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

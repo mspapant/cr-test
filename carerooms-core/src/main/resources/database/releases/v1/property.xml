@@ -1,0 +1,51 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet logicalFilePath="path-independent" id="version1-property-createTable" author="mspapant" runInTransaction="true">
+        <createTable tableName="PROPERTY">
+            <column name="ID" type="${key}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="USER_ID" type="${key}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INSURANCE_POLICY_NO" type="${varchar}"/>
+            <column name="INSURANCE_POLICY_DOCUMENT_ID" type="${key}"/>
+            <column name="PROOF_HOME_OWNERSHIP_DOCUMENT_ID" type="${key}"/>
+            <column name="APPROVAL_FROM_MORTGAGE_LENDER" type="boolean"/>
+            <column name="REGISTRATION_WITH_COUNCIL" type="boolean"/>
+            <column name="CREATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="PROPERTY"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_PROPERTY_USER_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="USER"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="PROPERTY"
+                                 baseColumnNames="INSURANCE_POLICY_DOCUMENT_ID"
+                                 constraintName="FK_PROPERTY_INSURANCE_POLICY_DOCUMENT_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="DOCUMENT"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="PROPERTY"
+                                 baseColumnNames="PROOF_HOME_OWNERSHIP_DOCUMENT_ID"
+                                 constraintName="FK_PROPERTY_PROOF_HOME_OWNERSHIP_DOCUMENT_ID"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+                                 referencedTableName="DOCUMENT"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>
